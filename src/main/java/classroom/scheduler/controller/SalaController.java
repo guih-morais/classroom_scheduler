@@ -26,7 +26,7 @@ public class SalaController {
     @GetMapping("/buscar/nome")
     public ResponseEntity<SalaDTO> buscaUsuarioNome(@RequestBody SalaDTO dto) { return service.buscarNumeroSala(dto.numeroSala()); }
 
-    @PostMapping("/criar")
+    @PostMapping
     public ResponseEntity<SalaDTO> criarUsuario(@RequestBody SalaDTO dto) { return service.criarSala(dto); }
 
     @DeleteMapping("deletar/numero")

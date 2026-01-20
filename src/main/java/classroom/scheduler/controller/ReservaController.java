@@ -20,7 +20,7 @@ public class ReservaController {
         return service.buscarTodasReservas();
     }
 
-    @PostMapping("/criar")
+    @PostMapping
     public ResponseEntity<ReservaDTO> criarReserva(@RequestBody ReservaDTO dto) {
         return service.criarReserva(dto);
     }

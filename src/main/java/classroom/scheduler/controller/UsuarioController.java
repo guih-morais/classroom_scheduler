@@ -22,18 +22,19 @@ public class UsuarioController {
         return service.buscarTodosUsuarios();
     }
 
-    @GetMapping("/buscar/nome")
-    public ResponseEntity<UsuarioDTO> buscaUsuarioNome(@RequestBody UsuarioDTO dto) { return service.buscarUsuarioNome(dto.nome()); }
+    @GetMapping("/buscar/{parametro}")
+    public ResponseEntity<UsuarioDTO> buscarUsuario(@PathVariable String parametro) { return service.buscarUsuario(parametro); }
 
-    @GetMapping("/buscar/email")
-    public ResponseEntity<UsuarioDTO> buscaUsuarioEmail(@RequestBody UsuarioDTO dto) { return service.buscarUsuarioEmail(dto.email()); }
 
-    @DeleteMapping("/deletar/nome")
-    public ResponseEntity<String> deletarUsuarioNome(@RequestBody UsuarioDTO dto) { return service.deletarUsuarioNome(dto.nome()); }
+    @DeleteMapping("/deletar/{id}")
+    public ResponseEntity<String> deletarUsuarioNome(@PathVariable Long id) { return service.deletarUsuario(id); }
 
-    @PostMapping("/criar")
+    @PostMapping
     public ResponseEntity<UsuarioDTO> criarUsuario(@RequestBody UsuarioDTO dto) {
         return service.criarUsuario(dto);
     }
+
+    @PutMapping
+    public ResponseEntity<UsuarioDTO> editarUsuario(@RequestBody UsuarioDTO dto) { return service.editarUsuario(dto); }
 
 }

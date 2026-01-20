@@ -24,6 +24,10 @@ public class Usuario implements Validavel{
         this.email = dto.email();
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -38,5 +42,9 @@ public class Usuario implements Validavel{
 
     public String getEmail() {
         return email;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
