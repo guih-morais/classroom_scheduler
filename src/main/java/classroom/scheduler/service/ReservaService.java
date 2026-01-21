@@ -31,7 +31,7 @@ public class ReservaService {
     public ResponseEntity<ReservaDTO> criarReserva(ReservaDTO dto) {
 
         Usuario usuario = usuarioRepository.findByNome(dto.nome()).get();
-        Sala sala =salaRepository.findByNumeroSala(dto.numeroSala()).get();
+        Sala sala = salaRepository.findByNumeroSala(dto.numeroSala()).get();
 
         Reserva reserva = new Reserva(dto, usuario, sala);
         List<Validacao> validacoes = new ArrayList<>(List.of());
@@ -39,12 +39,12 @@ public class ReservaService {
         repositorio.save(reserva);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(ReservaDTO.criarDTO(reserva));
+                .body(new ReservaDTO(reserva));
     }
 
     public ResponseEntity<List<ReservaDTO>> buscarTodasReservas() {
         List<Reserva> reservas = repositorio.findAll();
-        List<ReservaDTO> reservasDTO = reservas.stream().map(ReservaDTO::criarDTO).toList();
+        List<ReservaDTO> reservasDTO = reservas.stream().map(ReservaDTO::new).toList();
 
         return ResponseEntity
                 .status(HttpStatus.OK)

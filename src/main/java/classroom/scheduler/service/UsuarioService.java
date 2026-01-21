@@ -51,7 +51,7 @@ public class UsuarioService {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(new UsuarioDTO(optionalUsuario
-                        .orElseThrow(() -> new NoSuchElementException("Email não encontrado no banco de dados"))));
+                        .orElseThrow(() -> new NoSuchElementException("Este Nome ou Email não foi encontrado no banco de dados"))));
     }
     public ResponseEntity<List<UsuarioDTO>> buscarTodosUsuarios() {
         List<Usuario> usuarios = repositorio.findAll();

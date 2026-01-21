@@ -60,4 +60,8 @@ public class Reserva implements Validavel {
         this.fimReserva = dto.fimReserva();
         this.statusReserva = StatusReserva.ATIVA;
     }
+
+    public Long getId() {
+        return id;
+    }
 }

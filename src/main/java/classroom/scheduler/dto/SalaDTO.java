@@ -3,11 +3,11 @@ package classroom.scheduler.dto;
 import classroom.scheduler.models.Sala;
 
 public record SalaDTO(
-        int capacidade,
-        int numeroSala
+        Long id,
+        Integer capacidade,
+        Integer numeroSala
 ) {
-
-    public static SalaDTO criarDTO(Sala sala) {
-        return new SalaDTO(sala.getCapacidade(), sala.getNumeroSala());
+    public SalaDTO(Sala sala) {
+        this(sala.getId(), sala.getCapacidade(), sala.getNumeroSala());
     }
 }

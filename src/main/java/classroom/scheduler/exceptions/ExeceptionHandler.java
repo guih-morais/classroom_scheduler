@@ -1,6 +1,7 @@
 package classroom.scheduler.exceptions;
 
 import classroom.scheduler.exceptions.ValidacaoException;
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -17,10 +18,18 @@ public class ExeceptionHandler {
                 status(HttpStatus.BAD_REQUEST)
                 .body(ex.getMessage());
     }
+
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<String> exceptionGlobalHandler2(NoSuchElementException ex) {
         return ResponseEntity
-                .status(HttpStatus.OK)
+                .status(HttpStatus.BAD_REQUEST)
+                .body(ex.getMessage());
+    }
+
+    @ExceptionHandler(ObjectNotFoundException.class)
+    public ResponseEntity<String> exceptionGlobalHandler3(ObjectNotFoundException ex) {
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
                 .body("Favor verifique os campos, elemento não foi encontrado no banco de dados.");
     }
 }

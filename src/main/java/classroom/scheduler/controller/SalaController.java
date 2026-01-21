@@ -19,17 +19,20 @@ public class SalaController {
     SalaService service;
 
     @GetMapping
-    public ResponseEntity<List<SalaDTO>> exibirUsuarios() {
+    public ResponseEntity<List<SalaDTO>> exibirSalas() {
         return service.buscarTodasSalas();
     }
 
-    @GetMapping("/buscar/nome")
-    public ResponseEntity<SalaDTO> buscaUsuarioNome(@RequestBody SalaDTO dto) { return service.buscarNumeroSala(dto.numeroSala()); }
+    @GetMapping("/buscar/{numero}")
+    public ResponseEntity<SalaDTO> buscarNumeroSala(@PathVariable int numero) { return service.buscarNumeroSala(numero); }
 
     @PostMapping
-    public ResponseEntity<SalaDTO> criarUsuario(@RequestBody SalaDTO dto) { return service.criarSala(dto); }
+    public ResponseEntity<SalaDTO> criarSala(@RequestBody SalaDTO dto) { return service.criarSala(dto); }
 
-    @DeleteMapping("deletar/numero")
-    public ResponseEntity<String> deletarSalaNumero(@RequestBody SalaDTO dto) { return service.deletarSalaNumero(dto.numeroSala()); }
+    @DeleteMapping("deletar/{id}")
+    public ResponseEntity<String> deletarSala(@PathVariable Long id) { return service.deletarSalaNumero(id); }
+
+    @PutMapping
+    public ResponseEntity<SalaDTO> editarSala(@RequestBody SalaDTO dto) { return service.editarSala(dto); }
 
 }

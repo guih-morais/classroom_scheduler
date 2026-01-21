@@ -11,8 +11,17 @@ public class Sala implements Validavel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int capacidade;
-    private int numeroSala;
+    private Integer capacidade;
+
+    public void setCapacidade(Integer capacidade) {
+        this.capacidade = capacidade;
+    }
+
+    public void setNumeroSala(Integer numeroSala) {
+        this.numeroSala = numeroSala;
+    }
+
+    private Integer numeroSala;
     private boolean salaAtiva;
 
     @OneToMany(mappedBy = "sala")
@@ -37,5 +46,13 @@ public class Sala implements Validavel {
 
     public boolean isSalaAtiva() {
         return salaAtiva;
+    }
+
+    public void setSalaAtiva(boolean salaAtiva) {
+        this.salaAtiva = salaAtiva;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
