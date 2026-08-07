@@ -125,9 +125,3 @@ DELETE /reservas/deletar/{id}
 | Salas    | `GET /salas`    | `GET /salas/{id}`    | `POST /salas`    | `PUT /salas`    | `DELETE /salas/deletar/{id}`    |
 | Reservas | `GET /reservas` | `GET /reservas/{id}` | `POST /reservas` | `PUT /reservas` | `DELETE /reservas/deletar/{id}` |
 
-```
-
-**Observação:** na coleção Postman enviada, o endpoint de buscar uma reserva está sem URL preenchida e o de criar reserva não possui corpo de requisição. Por isso, esses dois pontos não devem ser tratados como exemplos confirmados pela coleção.
-
-Se você quiser deixar o README com aparência mais **profissional de projeto de portfólio**, eu também recomendo adicionar exemplos de `Request/Response`, códigos HTTP (`200`, `201`, `400`, `404`) e um botão/link para importar a coleção do Postman.
-```
